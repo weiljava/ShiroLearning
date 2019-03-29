@@ -1,4 +1,4 @@
-package com.dhw.shirodemo1.dto.req;
+package com.dhw.shirodemo1.model.domain;
 
 import lombok.Data;
 
@@ -11,7 +11,7 @@ import lombok.Data;
  * Description:
  */
 @Data
-public class LoginReq {
+public class UserInfo {
 
     private String userName;
     private String pwd;
