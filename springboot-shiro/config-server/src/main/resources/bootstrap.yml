@@ -1,0 +1,15 @@
+server:
+    port: 8888
+
+
+spring:
+    application:
+        name: config-server
+    cloud:
+        config:
+            server:
+                git:
+                    password: Huaweio0
+                    search-paths: /**
+                    uri: https://github.com/weiljava/config-file.git
+                    username: weiljava
