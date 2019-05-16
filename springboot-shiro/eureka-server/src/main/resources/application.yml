@@ -4,3 +4,16 @@ server:
 spring:
   application:
     name: @pom.artifactId@
+
+
+eureka:
+  server:
+    enable-self-preservation: false
+  instance:
+    hostname: localhost
+    instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+  client:
+    registerWithEureka: false #表明该服务不会想Eureka Server注册自己的信息
+    fetchRegistry: false  #表明该服务不会向Eureka Server获取注册信息
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
