@@ -14,5 +14,6 @@
         <module>config-server</module>
         <module>shiro-demo1</module>
         <module>gateway-service</module>
+        <module>user-service</module>
     </modules>
 </project>
