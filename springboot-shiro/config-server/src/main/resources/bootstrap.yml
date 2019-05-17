@@ -8,7 +8,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/weiljava/ShiroLearning/springboot-shiro/
-          search-paths: config-server
-          username: weiljava  #账号密码写真实的快一些我觉得，不使用也能访问有点慢
+          uri: https://github.com/weiljava/config-file.git
+          search-paths: /**
+          username: weiljava
           password: Huaweio0
