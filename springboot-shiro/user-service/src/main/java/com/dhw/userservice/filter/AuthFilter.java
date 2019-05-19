@@ -12,6 +12,11 @@ import java.io.IOException;
 @Log
 public class AuthFilter implements Filter {
     @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+
+    }
+
+    @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 
         HttpServletRequest request=(HttpServletRequest)servletRequest;
@@ -28,6 +33,11 @@ public class AuthFilter implements Filter {
 
             log.info("filter save user to threadlocal");
         }
+
+    }
+
+    @Override
+    public void destroy() {
 
     }
 }
