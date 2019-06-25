@@ -4,6 +4,7 @@ import com.dhw.shirodemo1.model.req.LoginReq;
 import com.dhw.shirodemo1.model.resp.Result;
 import com.dhw.shirodemo1.shiro.UserAuthenticationToken;
 import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.subject.Subject;
@@ -12,6 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 
@@ -23,8 +25,8 @@ import javax.validation.Valid;
  * To change this template use File | Settings | File Templates.
  * Description:
  */
-@Controller
-@Log4j2
+@RestController
+@Slf4j
 public class UserController {
 
     @PostMapping ("/login")

@@ -2,14 +2,13 @@ package com.dhw.userservice.filter;
 
 import com.dhw.userservice.domain.User;
 import com.dhw.userservice.handler.UserHandler;
-import lombok.extern.java.Log;
-import org.springframework.http.HttpRequest;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-@Log
+@Slf4j
 public class AuthFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
