@@ -2,13 +2,7 @@
 
 spring:
   application:
-    name: @pom.artifactId@
-  cloud:
-    config:
-      fail-fast: true
-      discovery:
-        service-id: shiro-demo1
-        enabled: true
+    name: shiro-demo1
   profiles:
     active: native
 

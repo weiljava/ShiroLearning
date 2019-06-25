@@ -1,6 +1,7 @@
 package com.dhw.shirodemo1.shiro;
 
 import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -17,7 +18,7 @@ import org.apache.shiro.subject.PrincipalCollection;
  * To change this template use File | Settings | File Templates.
  * Description:
  */
-@Log4j2
+@Slf4j
 public class MyShiroRealm extends AuthorizingRealm {
 
     @Override
