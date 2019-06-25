@@ -1,6 +1,16 @@
 server:
   port: 8000
 
-spring:
-  application:
-    name: @pom.artifactId@
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
+
+
+
+test:
+  enable: true
