@@ -7,7 +7,7 @@ Configuration:
       #生产：-Dlog.level.console=warn -Dlog.level.xjj=info
       - name: log.level.console
         value: trace
-      - name: log.level.shiro
+      - name: log.level.dhw
         value: trace
       - name: log.path
         value: /opt/logs
@@ -44,9 +44,9 @@ Configuration:
         - ref: CONSOLE
         - ref: ROLLING_FILE
     Logger: # 为com.xjj包配置特殊的Log级别，方便调试
-      - name: com.xjj
+      - name: com.dhw
         additivity: false
-        level: ${sys:log.level.shiro}
+        level: ${sys:log.level.dhw}
         AppenderRef:
           - ref: CONSOLE
           - ref: ROLLING_FILE
