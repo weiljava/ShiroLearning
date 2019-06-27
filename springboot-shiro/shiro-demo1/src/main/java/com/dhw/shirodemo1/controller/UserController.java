@@ -31,14 +31,9 @@ public class UserController {
 
     @PostMapping ("/login")
     @ResponseBody
-    public Result login(@RequestBody @Valid LoginReq loginReq, BindingResult bindingResult) {
+    public Result login(@RequestBody @Valid LoginReq loginReq) {
         log.info("用户登陆");
         Result result = new Result();
-        if (bindingResult.hasErrors()) {
-            result.setCode("100002");
-            return result;
-        }
-
         Subject currentUser = SecurityUtils.getSubject();
         UserAuthenticationToken token = new UserAuthenticationToken(loginReq.getUserName(), loginReq.getPwd(), false);
         try {

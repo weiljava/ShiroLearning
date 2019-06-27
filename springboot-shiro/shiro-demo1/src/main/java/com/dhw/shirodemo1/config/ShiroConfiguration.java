@@ -1,6 +1,7 @@
 package com.dhw.shirodemo1.config;
 
 import com.dhw.shirodemo1.shiro.MyShiroRealm;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
@@ -38,6 +39,7 @@ public class ShiroConfiguration {
     public DefaultWebSecurityManager securityManager() {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         securityManager.setRealm(myShiroRealm());
+        SecurityUtils.setSecurityManager(securityManager);
         return securityManager;
     }
 
@@ -47,15 +49,11 @@ public class ShiroConfiguration {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         Map<String, String> map = new HashMap<>();
-        // 登出
-        map.put("/logout", "logout");
+        map.put("/login", "anon");
         // 对所有用户认证
         map.put("/**", "authc");
-        // 对登录跳转接口进行释放
-        map.put("/subLogin", "anon");
         map.put("/error", "anon");
-        // 登录
-        // 注意：这里配置的 /login 是指到 @RequestMapping(value="/login")中的 /login
+        // 登录  注意：这里配置的 /login 是指到 @RequestMapping(value="/login")中的 /login
         shiroFilterFactoryBean.setLoginUrl("/login");
         // 首页
         shiroFilterFactoryBean.setSuccessUrl("/index");

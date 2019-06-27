@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dhw.shirodemo1.dao.UserMapper">
+    <resultMap id="BaseResultMap" type="com.dhw.shirodemo1.model.domain.UserInfo" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="login_name" property="loginName" jdbcType="VARCHAR" />
+        <result column="password" property="password" jdbcType="VARCHAR" />
+        <result column="cn_name" property="cnName" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <select id="selectUserByNameAndPwd" resultMap="BaseResultMap" parameterType="String">
+        select * from tb_user_info u where u.login_name = #{loginName} and u.password = #{password}
+    </select>
+</mapper>

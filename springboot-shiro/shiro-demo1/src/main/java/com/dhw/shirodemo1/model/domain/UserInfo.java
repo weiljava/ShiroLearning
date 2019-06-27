@@ -13,7 +13,9 @@ import lombok.Data;
 @Data
 public class UserInfo {
 
-    private String userName;
-    private String pwd;
+    private long id;
+    private String loginName;
+    private String password;
+    private String cnName;
 
 }
