@@ -5,7 +5,7 @@ import com.dhw.shirodemo1.model.domain.UserInfo;
 
 public interface UserService {
 
-    UserInfo getUserByLoginNameAndPwd(String loginName, String password) throws UserException;
+    UserInfo getUserByLoginNameAndPwd(String loginName, String password);
 
     UserInfo getUserByLoginName(String loginName);
 }

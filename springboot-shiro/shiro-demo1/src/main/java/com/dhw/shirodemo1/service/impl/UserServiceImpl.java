@@ -24,13 +24,8 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public UserInfo getUserByLoginNameAndPwd(String loginName, String password) throws UserException {
-        UserInfo selectUser = userMapper.selectUserByNameAndPwd(loginName, password);
-        if (selectUser == null) {
-            throw new UserException("账号密码不匹配");
-        } else {
-            return selectUser;
-        }
+    public UserInfo getUserByLoginNameAndPwd(String loginName, String password) {
+        return userMapper.selectUserByNameAndPwd(loginName, password);
     }
 
     @Override

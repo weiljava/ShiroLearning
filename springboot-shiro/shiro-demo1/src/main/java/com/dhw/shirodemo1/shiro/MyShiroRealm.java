@@ -47,34 +47,14 @@ public class MyShiroRealm extends AuthorizingRealm {
                 throw new UnknownAccountException(); //如果用户名错误
             }
             String password = String.valueOf(userAuthenticationToken.getPassword());
-            try {
-                userInfo = userService.getUserByLoginNameAndPwd(userName, password);
-                if (userInfo == null) {
-                    throw new IncorrectCredentialsException(); //如果密码错误
-                } else {
-                    //如果身份认证验证成功，返回一个AuthenticationInfo实现；
-                    info = new SimpleAuthenticationInfo(userName, password, getName());
-                }
-            } catch (UserException e) {
-                throw new AuthenticationException("用户名密码错误");
+            userInfo = userService.getUserByLoginNameAndPwd(userName, password);
+            if (userInfo == null) {
+                throw new IncorrectCredentialsException(); //如果密码错误
+            } else {
+                //如果身份认证验证成功，返回一个AuthenticationInfo实现；
+                info = new SimpleAuthenticationInfo(userName, password, getName());
             }
         }
         return info;
     }
-
-//    protected void assertCredentialsMatch(AuthenticationToken token, AuthenticationInfo info)
-//            throws AuthenticationException {
-//        if (token instanceof UserAuthenticationToken) {
-//            UserAuthenticationToken userAuthenticationToken = (UserAuthenticationToken) token;
-//            String userName = userAuthenticationToken.getUsername();
-//            String password = String.valueOf(userAuthenticationToken.getPassword());
-//            try {
-//                UserInfo userInfo = userService.getUserByLoginNameAndPwd(userName, password);
-//                UserInfo userInfo info.getPrincipals();
-//            } catch (UserException e) {
-//                throw new AuthenticationException("用户名密码错误");
-//            }
-//        }
-//    }
-
 }

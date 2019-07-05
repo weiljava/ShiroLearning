@@ -43,7 +43,7 @@ public class UserController {
         } catch (AuthenticationException e) {
             log.error(e.getMessage(), e);
             result.setCode("100003");
-            result.setMsg("登陆失败");
+            result.setMsg(e.getMessage());
         }
         return result;
     }

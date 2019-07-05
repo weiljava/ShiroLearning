@@ -48,18 +48,23 @@ public class ShiroConfiguration {
     public ShiroFilterFactoryBean shiroFilterFactoryBean(DefaultWebSecurityManager securityManager) {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setSecurityManager(securityManager);
+
+        //
         Map<String, String> map = new HashMap<>();
         map.put("/login", "anon");
         // 对所有用户认证
         map.put("/**", "authc");
         map.put("/error", "anon");
+        shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
+
+
         // 登录  注意：这里配置的 /login 是指到 @RequestMapping(value="/login")中的 /login
         shiroFilterFactoryBean.setLoginUrl("/login");
         // 首页
         shiroFilterFactoryBean.setSuccessUrl("/index");
         // 错误页面，认证不通过跳转
         shiroFilterFactoryBean.setUnauthorizedUrl("/error");
-        shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
+
         return shiroFilterFactoryBean;
     }
 
