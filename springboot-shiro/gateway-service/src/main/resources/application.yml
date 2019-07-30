@@ -5,6 +5,12 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka/
 
+logging:
+  level: #调整相关包的 log 级别，
+    org.springframework.cloud.gateway: debug
+
+server:
+  port: 8080
 
 spring:
   application:
@@ -16,20 +22,15 @@ spring:
           enabled: true
           lowerCaseServiceId: true
       routes:
-        - id: baidu_route
-          uri: http://www.baidu.com
-          predicates:
-            - Query=name,baidu
         - id: zhihu_route
           uri: https://www.zhihu.com/
           predicates:
             - Query=name,zhihu
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-
-  security:
-    enabled: false
+#management:
+#  security:
+#    enabled: false
+#  endpoints:
+#    web:
+#      exposure:
+#        include: '*'
