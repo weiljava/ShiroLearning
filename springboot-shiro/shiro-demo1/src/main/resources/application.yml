@@ -22,7 +22,8 @@ spring:
     password: root
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/shiro_learning?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT
-
+  application:
+    name: shiro-service
 mybatis:
   typeAliasesPackage: com.dhw.shirodemo1.model.domain
   mapperLocations: classpath:mapper/*.xml

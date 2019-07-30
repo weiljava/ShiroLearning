@@ -26,11 +26,23 @@ spring:
           uri: https://www.zhihu.com/
           predicates:
             - Query=name,zhihu
+        - id: user-service   #配置user-service服务路由
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/user/**
+          filters:
+            - StripPrefix=1
+        - id: shiro-service   #配置user-service服务路由
+          uri: lb://SHIRO-SERVICE
+          predicates:
+            - Path=/shiro/**
+          filters:
+            - StripPrefix=1
 
-#management:
-#  security:
-#    enabled: false
-#  endpoints:
-#    web:
-#      exposure:
-#        include: '*'
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+security:
+  enabled: false

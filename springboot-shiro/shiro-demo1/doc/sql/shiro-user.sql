@@ -1,7 +1,7 @@
 
 CREATE  DATABASE shiro_learning;
 
-USE shiro_learning;`ucms`
+USE shiro_learning;
 
 
 
