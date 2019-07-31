@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "c5d161c9-1ede-4df4-a5a2-ee6661b0bc0e",
+		"name": "github-shiro",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "用户登陆",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"userName\":\"dinghuawei\",\n  \"pwd\":\"123456\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/shiro/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"shiro",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "网关请求",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/actuator/gateway/routes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actuator",
+						"gateway",
+						"routes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "服务调用-hello",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user/hello/dinghuawei?token=abc123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"hello",
+						"dinghuawei"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "abc123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "服务调用-getHeader",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "loginName",
+						"value": "123456",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/test/head?token=abc123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"test",
+						"head"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "abc123"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
