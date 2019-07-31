@@ -6,6 +6,9 @@ import com.dhw.userservice.handler.UserHandler;
 import lombok.extern.java.Log;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 @RestController
 @Log
 public class HelloController {
@@ -53,5 +56,14 @@ public class HelloController {
 
 
         return "success";
+    }
+
+
+
+    @GetMapping("/test/head")
+    public String testGatewayHead(HttpServletRequest request){
+        log.info("调用user-service");
+        String head=request.getHeader("loginName");
+        return "return head info:"+head;
     }
 }
