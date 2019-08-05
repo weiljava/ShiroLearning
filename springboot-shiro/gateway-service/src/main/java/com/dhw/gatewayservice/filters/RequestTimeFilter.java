@@ -18,7 +18,8 @@ import java.util.List;
  * Date: 2019/7/30
  * Time: 16:37
  * To change this template use File | Settings | File Templates.
- * Description:
+ * Description: Gateway Filter
+ * 需要通过spring.cloud.routes.filters 配置在具体路由下，只作用在当前路由上或通过spring.cloud.default-filters配置在全局，作用在所有路由上。
  */
 @Slf4j
 @Component

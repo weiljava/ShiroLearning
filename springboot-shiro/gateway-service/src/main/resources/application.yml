@@ -32,7 +32,7 @@ spring:
             - Path=/user/**
           filters:
             - StripPrefix=1
-            - AddRequestHeader=loginName,dinghuawei #使用AddRequestHeader
+#            - AddRequestHeader=loginName,dinghuawei #使用AddRequestHeader
         - id: shiro-service   #配置user-service服务路由
           uri: lb://SHIRO-SERVICE
           predicates:
